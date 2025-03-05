@@ -290,3 +290,7 @@ inner join [Order Details] as od
 on od.OrderID = o.OrderID
 group by c.CompanyName
 having  SUM(od.Quantity * od.UnitPrice) between 500 and 2000
+
+-- Left JOin, Right Join, Full Join, Cross Join 
+-- Seleccionar los datos  que se van a utilizar para insertar en tabla products_new
+--product_id, productName, customer, category, UnitePrice, discontinued, inserted_date
