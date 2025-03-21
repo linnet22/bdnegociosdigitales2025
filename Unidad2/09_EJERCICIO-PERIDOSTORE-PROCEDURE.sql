@@ -58,12 +58,13 @@ create or alter procedure spu_realizar_pedido
 
 
  exec spu_realizar_pedido 
-							@numPedido = 113069,
-							@cliente =1000000,
-							@repre =106, @fab = 'REI',
-							@producto = '2A44L', 
+							@numPedido = 113070,
+							@cliente =2117,
+							@repre =101, @fab = 'ACI',
+							@producto = '4100X', 
 							@cantidad =20
 
 
-reretes 
- select * from Pedidos  
+
+ select * from Productos
+ WHERE	 Id_fab = 'ACI' and Id_producto = '4100x'
