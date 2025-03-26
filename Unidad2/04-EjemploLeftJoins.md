@@ -1,3 +1,4 @@
+# Ejemplo-Left-Joins
 ```
 SQL
 -- Ejemplo de left join aplicado

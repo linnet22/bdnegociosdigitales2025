@@ -1,3 +1,4 @@
+# ConsultasAgregado
 ```
 SQL
 --Consultas de agregado (NOTA solo devuelven un solo registro )
