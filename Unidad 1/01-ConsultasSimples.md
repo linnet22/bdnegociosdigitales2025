@@ -1,4 +1,8 @@
--- lenguaje SQL-LMD (insert, update, delete, selectl - CRUD)
+# Consultas Simples SQL
+
+```
+ SQL
+ -- lenguaje SQL-LMD (insert, update, delete, selectl - CRUD)
 -- Consultas simples 
 use Northwind;
 -- mostrar  todos los clientes, provedores, categoriar, productos, ordenes , detalles de la orden, empleados  con todas las columnas de la empresa
@@ -24,7 +28,7 @@ select EmployeeID, FirstName, Title, City, Country  from  Employees;
 --first name como primerNombre,
 --Title como cargo, City como ciudad, Country como pais
 
-select EmployeeID as [Numero Empleado] , FirstName  as primernombre, Title 'cargo' , City as ciudad, Country as país from Employees;
+select EmployeeID as [Numero Empleado] , FirstName  as primernombre, Title 'cargo' , City as ciudad, Country as paï¿½s from Employees;
 
 -- Campos calculados 
 -- Seleccionar el importe de cada uno de los productos 
@@ -32,12 +36,12 @@ select EmployeeID as [Numero Empleado] , FirstName  as primernombre, Title 'carg
 
 select *,(UnitPrice * Quantity) as importe from [Order Details] ;
 
--- Selecionar las fechas de orden de año, mes y dia , el cliente 
+-- Selecionar las fechas de orden de aï¿½o, mes y dia , el cliente 
 -- que las ordeno y el empleado que la realizo 
 
-select OrderDate, year(OrderDate)as [Año de la orden], MONTH(OrderDate), day(OrderDate), CustomerID, EmployeeID from Orders
+select OrderDate, year(OrderDate)as [Aï¿½o de la orden], MONTH(OrderDate), day(OrderDate), CustomerID, EmployeeID from Orders
 select OrderDate as 'Fecha', 
-year (orderdate)as 'Año', 
+year (orderdate)as 'Aï¿½o', 
 MONTH(orderdate)as 'Mes', 
 day(orderdate) as 'Dia de la orden',
 CustomerID, EmployeeID from Orders;
@@ -55,7 +59,7 @@ select CustomerID, CompanyName, City, country
 from Customers 
 where CustomerID = 'BOLID';
 select * from Customers;
-select customerid as Numero , CompanyName as Compañia, ContactName as [Nombre del contacto],
+select customerid as Numero , CompanyName as Compaï¿½ia, ContactName as [Nombre del contacto],
 city as ciudad,
 country as pais from Customers
 where  country = 'germany'
@@ -63,13 +67,13 @@ where  country = 'germany'
 -- Seleccionar todos los clientes que no sean de alemania 
 
 select * from Customers;
-select customerid as Numero , CompanyName as Compañia, ContactName as [Nombre del contacto],
+select customerid as Numero , CompanyName as Compaï¿½ia, ContactName as [Nombre del contacto],
 city as ciudad,
 country as pais from Customers
 where  country != 'germany'
 
 select * from Customers;
-select customerid as Numero , CompanyName as Compañia, ContactName as [Nombre del contacto],
+select customerid as Numero , CompanyName as Compaï¿½ia, ContactName as [Nombre del contacto],
 city as ciudad,
 country as pais from Customers
 where  country <> 'germany'
@@ -98,20 +102,20 @@ select Quantity from [Order Details]
 where Quantity >= 40
 
 -- Mostrar el nombre completo del empleado, su numero de empleado, su fecha de nacimiento
--- ciudad, fecha de contratación debe ser de aquellos que fueron contratados despues de 1993
--- los resultados en sus encabezados deben ser mostrados en español
+-- ciudad, fecha de contrataciï¿½n debe ser de aquellos que fueron contratados despues de 1993
+-- los resultados en sus encabezados deben ser mostrados en espaï¿½ol
 
 select EmployeeID as 'Numero', 
 FirstName as 'Primer Nombre', 
 LastName as 'Apellido', BirthDate as 'Fecha Nacimiento', 
-city as 'Ciudad', HireDate as 'Fecha de Contratación'  
+city as 'Ciudad', HireDate as 'Fecha de Contrataciï¿½n'  
 from Employees
 where year(HireDate) > 1993
 
 
 select EmployeeID as 'Numero', 
 (FirstName + '  ' + LastName) as 'Nombre Completo' , BirthDate as 'Fecha Nacimiento', 
-city as 'Ciudad', HireDate as 'Fecha de Contratación'  
+city as 'Ciudad', HireDate as 'Fecha de Contrataciï¿½n'  
 from Employees
 where year(HireDate) > 1993
 
@@ -119,7 +123,7 @@ where year(HireDate) > 1993
 select EmployeeID as 'Numero', 
 Concat(FirstName, ' ', LastName, ' - ', Title) as [Nombre Completo]
 ,BirthDate as 'Fecha Nacimiento', 
-city as 'Ciudad', HireDate as 'Fecha de Contratación'  
+city as 'Ciudad', HireDate as 'Fecha de Contrataciï¿½n'  
 from Employees
 where year(HireDate) > 1993
 
@@ -128,7 +132,7 @@ where year(HireDate) > 1993
 select EmployeeID as 'Numero', 
 Concat(FirstName, ' ', LastName, ' - ', Title) as [Nombre Completo]
 ,BirthDate as 'Fecha Nacimiento', 
-city as 'Ciudad', HireDate as 'Fecha de Contratación', ReportsTo as 'Jefe' 
+city as 'Ciudad', HireDate as 'Fecha de Contrataciï¿½n', ReportsTo as 'Jefe' 
 from Employees
 where ReportsTo != 2
 
@@ -163,7 +167,7 @@ where year(BirthDate)>=1955 and year(BirthDate)<=1958
 and City = 'London'
 
 -- sELECCIONAR LOS PEDIDOS CON FLETE DE PESO (freight) mayor a 100 
--- y enviados a Francia o España
+-- y enviados a Francia o Espaï¿½a
 
 select OrderID, OrderDate, ShipCountry, Freight from Orders
 
@@ -218,7 +222,7 @@ where CategoryID in (1,3,5);
 -- region asignada 
 
 select OrderID, OrderDate,ShipRegion from Orders
-where ShipRegion in ('RJ', 'Táchira')
+where ShipRegion in ('RJ', 'Tï¿½chira')
 or ShipRegion is null 
 -- Seleccionar las ordenes que tengan cantidades de 12, 9 y 40 
 -- y descuento de 0.15 y 0.05
@@ -292,7 +296,7 @@ and (city <> 'London' and City<>'seattle')
 		-- 1) % -> Representa cero o mas caracteres en el patron de busqueda
 		-- 2) _ (Guion bajo) Representa exactamente un caracter en el patron de busqueda 
 		-- 3) [] Corchetes -> Se utiliza para definir un conjunto de caracteres, buscando
-		-- cualquiera de ellos en la posición especifica 
+		-- cualquiera de ellos en la posiciï¿½n especifica 
 		--4)[^] -> Se utiliza para buscar caracteres que no estan dentro del conjunto especifico 
 -- Buscar los productos  que comienzan con C
 
@@ -370,3 +374,4 @@ select CustomerID, Country, City from Customers
 where (Country = 'Brazil' or Country= 'Germany')
 and region is not null 
 order by Country , City desc
+ ```
